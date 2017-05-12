@@ -1,0 +1,34 @@
+{
+  "name": "za-id.js",
+  "version": "0.0.1",
+  "description": "A small package to help validate South African ID numbers",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "tsc && mocha build/test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thorocaine/za-id.js.git"
+  },
+  "keywords": [
+    "South",
+    "Africa",
+    "ID",
+    "Number"
+  ],
+  "author": "Jonathan Peel <me@jonathanpeel.co.za> (http://www.jonathanpeel.co.za)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thorocaine/za-id.js/issues"
+  },
+  "homepage": "https://github.com/Thorocaine/za-id.js#readme",
+  "devDependencies": {
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.18",
+    "chai": "^3.5.0",
+    "command-line-test": "^1.0.9",
+    "mocha": "^3.3.0",
+    "typescript": "^2.3.2"
+  }
+}
