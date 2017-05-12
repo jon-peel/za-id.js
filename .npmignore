@@ -1,5 +1,8 @@
+.vscode
 node_modules
 build
-ts
+src
 
 tsconfig.json
+.npmignore
+.gitignore

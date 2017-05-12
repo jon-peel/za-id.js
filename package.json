@@ -4,8 +4,8 @@
   "description": "A small package to help validate South African ID numbers",
   "main": "build/index.js",
   "scripts": {
-    "build": "tsc &&",
-    "test": "tsc && mocha build/test/index.js"
+    "build": "tsc && webpack build/index.js index.js && cp build/index.d.ts ./",
+    "test": "tsc && mocha build/test.js"
   },
   "repository": {
     "type": "git",
@@ -25,12 +25,15 @@
   "homepage": "https://github.com/Thorocaine/za-id.js#readme",
   "devDependencies": {
     "@types/chai": "^3.5.2",
+    "@types/dateformat": "^1.0.1",
     "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.18",
     "chai": "^3.5.0",
-    "command-line-test": "^1.0.9",
     "mocha": "^3.3.0",
     "typescript": "^2.3.2",
     "webpack": "^2.5.1"
+  },
+  "dependencies": {
+    "dateformat": "^2.0.0"
   }
 }
