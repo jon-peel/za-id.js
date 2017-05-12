@@ -1,9 +1,10 @@
 {
   "name": "za-id.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A small package to help validate South African ID numbers",
   "main": "build/index.js",
   "scripts": {
+    "build": "tsc &&",
     "test": "tsc && mocha build/test/index.js"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "chai": "^3.5.0",
     "command-line-test": "^1.0.9",
     "mocha": "^3.3.0",
-    "typescript": "^2.3.2"
+    "typescript": "^2.3.2",
+    "webpack": "^2.5.1"
   }
 }

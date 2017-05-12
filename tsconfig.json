@@ -8,7 +8,7 @@
         "removeComments": true,
         "sourceMap": true
     },
-    "files": ["ts/src/index.ts", "ts/test/index.ts"],
+    "files": ["ts/src/za-id.ts", "ts/test/index.ts"],
     "types": ["node", "mocha"],
     "typeRoots":["./node_modules/@types"]
 }
