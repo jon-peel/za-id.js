@@ -10,6 +10,5 @@
         "declaration": true
     },
     "files": ["src/index.ts", "src/test.ts"],
-    "types": ["node", "mocha"],
     "typeRoots":["./node_modules/@types"]
 }
