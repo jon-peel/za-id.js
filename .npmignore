@@ -1,8 +1,11 @@
 .vscode
 node_modules
-build
 src
 
 tsconfig.json
 .npmignore
 .gitignore
+
+test.d.ts
+test.js
+test.js.map
