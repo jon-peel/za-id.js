@@ -14,13 +14,13 @@ or
 
     var details = {};
 	validateIdNumber('000000000000', details);
-	console.log(details.dateOfBorth); //Date value
-	console.log(details.SouthAfrican); //boolean value
-	console.log(details.Gender); //boolean value, male is true
+	console.log(details.dateOfBirth); // Date value
+	console.log(details.SouthAfrican); // boolean value
+	console.log(details.Gender); // 'Male' | 'Female'
 
 ## Prerequisites
 
-This pachage makes use of [moment.js](https://momentjs.com).
+This package makes use of [moment.js](https://momentjs.com), and [lodash](https://lodash.com).
 
 ## Typescript
 

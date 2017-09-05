@@ -1,32 +1,18 @@
 import * as moment from 'moment';
 import {filter, map, reduce} from 'lodash';
 
+export type gender = 'Male' | 'Female';
+export const male: gender = 'Male';
+export const female: gender = 'Female';
+
 const genderCheck = 5;
 const southAfricanCheck = 10;
 const penultimate = 11;
 
-export interface IGender {
-	isMale: boolean;
-	isFemale: boolean;
-	name: string;
-}
-
-export class Male implements IGender {
-	isMale = true;
-	isFemale = false;
-	name = "Male";
-}
-
-export class Female implements IGender {
-	isMale = false;
-	isFemale = true;
-	name = "Female";
-}
-
 export interface idNumberDetails {
 	dateOfBirth?: Date;
 	southAfrican?: boolean;
-	gender?: IGender;
+	gender?: gender;
 }
 
 export function validateIdNumber(idNumber: string, details? :idNumberDetails): boolean {
@@ -37,7 +23,7 @@ export function validateIdNumber(idNumber: string, details? :idNumberDetails): b
 	if (!validateBirthday(dateOfBirth, idNumber)) return false;
 	if (details != null) {
 		details.dateOfBirth = dateOfBirth.toDate();
-		details.gender = idArray[genderCheck] >= 5 ? new Male() : new Female();
+		details.gender = idArray[genderCheck] >= 5 ? male : female;
 		details.southAfrican = idArray[southAfricanCheck] === 0;
 	}	
 	return true;

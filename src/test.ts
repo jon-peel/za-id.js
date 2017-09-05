@@ -1,5 +1,5 @@
 import { expect, assert } from 'chai';
-import { validateIdNumber as validate, idNumberDetails, IGender } from './index';
+import { validateIdNumber as validate, idNumberDetails, gender, male, female } from './index';
 
 const data: id[] = [
 	{id: '8401295047080', dob: '1984-01-28T22:00:00.000Z', m: true, sa: true},
@@ -48,7 +48,7 @@ describe('za-id', () => {
 			it(`${d.id} is valid`, () => expect(valid).to.be.true);
 			it(`${d.id} ${d.sa ? 'is' : 'is not'} South African`, () => expect(details.southAfrican).to.be.equal(d.sa));
 			if (!details.gender) return assert.fail(0,1,"No gender returned"); 
-			it(`${d.id} is ${d.m ? 'male' : 'female'}`, () => expect((details.gender as IGender).isMale).to.be.equal(d.m));
+			it(`${d.id} is ${d.m ? 'male' : 'female'}`, () => expect((details.gender as gender) === male).to.be.equal(d.m));
 			if (!details.dateOfBirth) return assert.fail(0,1,"No date of birth returned");
 			it(`${d.id} has correct date of birth`, () => expect((details.dateOfBirth as Date).toISOString()).to.be.equal(d.dob));				
 		});
