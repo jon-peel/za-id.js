@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { validateIdNumber as validate, idNumberDetails } from './index';
+import { expect, assert } from 'chai';
+import { validateIdNumber as validate, idNumberDetails, IGender } from './index';
 
 const data: id[] = [
 	{id: '8401295047080', dob: '1984-01-28T22:00:00.000Z', m: true, sa: true},
@@ -35,10 +35,11 @@ describe('za-id', () => {
 		it('invalid birthday should be invalid', () => expect(validate('8402305047080')).to.be.false);
 		it('valid number should be valid', () => expect(validate('8401295047080')).to.be.true);
 		
-		it('birthdate is Jan 29', () => {
+		it('birthday is Jan 29', () => {
 			const details = {} as idNumberDetails;
 			var valid = validate('8401295047080', details);
-			expect(details.dateOfBirth.toISOString()).to.equal('1984-01-28T22:00:00.000Z');
+			if (!details.dateOfBirth) return assert.fail(0,1,"No date of birth returned");
+			expect(details.dateOfBirth.toISOString()).to.equal('1984-01-28T22:00:00.000Z');				
 		});
 
 		data.forEach(d => {
@@ -46,8 +47,10 @@ describe('za-id', () => {
 			var valid = validate(d.id, details);
 			it(`${d.id} is valid`, () => expect(valid).to.be.true);
 			it(`${d.id} ${d.sa ? 'is' : 'is not'} South African`, () => expect(details.southAfrican).to.be.equal(d.sa));
-			it(`${d.id} is ${d.m ? 'male' : 'female'}`, () => expect(details.gender).to.be.equal(d.m));
-			it(`${d.id} has correct date of birth`, () => expect(details.dateOfBirth.toISOString()).to.be.equal(d.dob));
+			if (!details.gender) return assert.fail(0,1,"No gender returned"); 
+			it(`${d.id} is ${d.m ? 'male' : 'female'}`, () => expect((details.gender as IGender).isMale).to.be.equal(d.m));
+			if (!details.dateOfBirth) return assert.fail(0,1,"No date of birth returned");
+			it(`${d.id} has correct date of birth`, () => expect((details.dateOfBirth as Date).toISOString()).to.be.equal(d.dob));				
 		});
 	});
 });

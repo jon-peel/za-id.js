@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
+        "declaration": true,
         "module": "commonjs",
-        "target": "es5",
         "noImplicitAny": false,
-        "sourceMap": false,
-        "outDir": "./",
         "removeComments": true,
         "sourceMap": true,
-        "declaration": true
+        "strict": true,
+        "target": "es5",
+        "outDir": "./"
     },
     "files": ["src/index.ts", "src/test.ts"],
     "typeRoots":["./node_modules/@types"]
