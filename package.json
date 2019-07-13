@@ -1,11 +1,11 @@
 {
   "name": "za-id",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A small package to help validate South African ID numbers",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "tsc && mocha"
+    "test": "tsc && jasmine ./test.js"
   },
   "repository": {
     "type": "git",
@@ -24,15 +24,12 @@
   },
   "homepage": "https://github.com/Thorocaine/za-id.js#readme",
   "devDependencies": {
-    "@types/chai": "^4.0.4",
-    "@types/mocha": "^2.2.42",
+    "@types/jasmine": "^3.3.13",
     "@types/moment": "^2.13.0",
-    "chai": "^4.1.2",
-    "mocha": "^3.5.0",
-    "typescript": "^2.5.2"
+    "jasmine": "^3.4.0",
+    "typescript": "^3.5.3"
   },
   "dependencies": {
-    "lodash": "^4.17.4",
     "moment": "^2.18.1"
   }
 }
